@@ -75,11 +75,15 @@ appNameSpace.init = function(opt){
     appNameSpace.ajaxCall(opt);
 };
 
-$(document).ready(function(){
-  var options = {
-    subreddit: "gif",
-    type: "gif"
-  };
+// "Class" example
 
-  appNameSpace.init(options);
+appNameSpace.optionsClass = function(subreddit, type){
+    this.subreddit = subreddit || "gif"; //default value
+    this.type = type || "gif"; //default value
+};
+
+
+$(document).ready(function(){
+    var options = new appNameSpace.optionsClass("gif", "gif");
+    appNameSpace.init(options);
 });
